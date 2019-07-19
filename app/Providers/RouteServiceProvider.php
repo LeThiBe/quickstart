@@ -70,4 +70,8 @@ class RouteServiceProvider extends ServiceProvider
              ->namespace($this->namespace)
              ->group(base_path('routes/api.php'));
     }
+
+    protected $policies = [
+        Task::class => TaskPolicy::class,
+    ];
 }
