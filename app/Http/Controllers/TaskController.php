@@ -21,7 +21,7 @@ class TaskController extends Controller
     public function index(Request $request)
     {
         return view('tasks.index', [
-            'tasks' => $this->tasks->forUser($request->user()),
+            'tasks' => $this->tasks->recent($request->user()),
         ]);
     }
 
@@ -29,9 +29,11 @@ class TaskController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|max:255',
+            'deadline' => 'required|date|after_or_equal:today',
         ]);
-        $request->user()->tasks()->create([
+        $task = $request->user()->tasks()->create([
             'name'=>$request -> name,
+            'deadline'=>$request -> deadline,
         ]);
         return redirect('tasks');
     }
