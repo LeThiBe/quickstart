@@ -4,10 +4,13 @@ namespace App;
 
 use App\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Task extends Model
 {
   protected $fillable = ['name', 'deadline'];
+
+  use SoftDeletes;
 
   public function user()
   {
