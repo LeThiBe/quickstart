@@ -13,6 +13,7 @@
 
       <div class="col-sm-6">
         <input type="text" name="name" id="task-name" class="form-control">
+        <input type="date" name="deadline" id="task-deadline" class="form-control" >
       </div>
     </div>
     <div class="form-group">

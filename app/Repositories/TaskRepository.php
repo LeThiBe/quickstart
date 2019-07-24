@@ -9,7 +9,10 @@ class TaskRepository
 {
   public function forUser(User $user)
   {
-    return Task::where('user_id', $user->id)
-                ->get();
+    return $user->tasks;
+  }
+
+  public function recent(User $user) {
+    return $user->tasks()->recent()->get();
   }
 }

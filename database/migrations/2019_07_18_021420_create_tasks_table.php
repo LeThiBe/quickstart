@@ -17,6 +17,8 @@ class CreateTasksTable extends Migration
             $table->bigIncrements('id');
             $table->integer('user_id')->index();
             $table->string('name');
+            $table->timestamp('deadline')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
